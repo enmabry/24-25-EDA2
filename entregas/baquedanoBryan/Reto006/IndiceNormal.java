@@ -6,6 +6,7 @@ public class IndiceNormal extends Indice {
         super(capacidadMaxima);
     }
 
+    @Override
     public void agregar(String valor, int posicion) {
         int indiceValor = -1;
         int i = 0;
@@ -27,6 +28,7 @@ public class IndiceNormal extends Indice {
         contadores[indiceValor]++;
     }
 
+    @Override
     public int[] buscar(String valor) {
         int indiceValor = -1;
         int posicion = 0;
@@ -50,6 +52,7 @@ public class IndiceNormal extends Indice {
         return resultado;
     }
 
+    @Override
     public boolean contiene(String valor) {
         for (int i = 0; i < cantidadValores; i++) {
             if (valores[i].equals(valor)) {
@@ -59,6 +62,7 @@ public class IndiceNormal extends Indice {
         return false;
     }
 
+    @Override
     public String[] obtenerTodos() {
         String[] resultado = new String[cantidadValores];
         for (int i = 0; i < cantidadValores; i++) {
