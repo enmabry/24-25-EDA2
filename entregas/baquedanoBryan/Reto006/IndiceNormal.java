@@ -1,6 +1,6 @@
 package entregas.baquedanoBryan.Reto006;
 
-public class IndiceNormal {
+public class IndiceNormal extends Indice {
     private String[] valores;
     private int[][] posiciones;
     private int[] contadores;
