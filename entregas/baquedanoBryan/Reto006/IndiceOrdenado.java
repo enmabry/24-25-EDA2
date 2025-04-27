@@ -141,7 +141,13 @@ public class IndiceOrdenado extends Indice {
         return false;
     }
 
+    @Override
     public String[] obtenerTodos() {
+        String[] resultado = new String[cantidadValores];
+        for (int i = 0; i < cantidadValores; i++) {
+            resultado[i] = valores[i];
+        }
+        return resultado;
     }
 
 }
