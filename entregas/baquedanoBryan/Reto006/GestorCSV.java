@@ -36,7 +36,7 @@ public class GestorCSV {
             return;
         }
 
-        indices[indiceColumna] = new IndiceNormal(filas);
+        indices[indiceColumna] = new IndiceOrdenado(filas);
         columnaIndexada[indiceColumna] = true;
 
         for (int i = 0; i < filas; i++) {
