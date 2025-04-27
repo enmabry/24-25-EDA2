@@ -96,7 +96,6 @@ public class IndiceOrdenado extends Indice {
         int fin = cantidadValores - 1;
         int indiceValor = -1;
 
-
         while (inicio <= fin) {
             int medio = (inicio + fin) / 2;
 
@@ -122,7 +121,24 @@ public class IndiceOrdenado extends Indice {
         return resultado;
     }
 
+    @Override
     public boolean contiene(String valor) {
+        int inicio = 0;
+        int fin = cantidadValores - 1;
+
+        while (inicio <= fin) {
+            int medio = (inicio + fin) / 2;
+
+            if (valores[medio].equals(valor)) {
+                return true;
+            } else if (valores[medio].compareTo(valor) > 0) {
+                fin = medio - 1;
+            } else {
+                inicio = medio + 1;
+            }
+        }
+
+        return false;
     }
 
     public String[] obtenerTodos() {
