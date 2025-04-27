@@ -1,16 +1,9 @@
 package entregas.baquedanoBryan.Reto006;
 
 public class IndiceNormal extends Indice {
-    private String[] valores;
-    private int[][] posiciones;
-    private int[] contadores;
-    private int cantidadValores;
 
     public IndiceNormal(int capacidadMaxima) {
-        valores = new String[capacidadMaxima];
-        posiciones = new int[capacidadMaxima][capacidadMaxima];
-        contadores = new int[capacidadMaxima];
-        cantidadValores = 0;
+        super(capacidadMaxima);
     }
 
     public void agregar(String valor, int posicion) {
