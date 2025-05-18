@@ -46,4 +46,38 @@ public class Acta {
         }
     }
 
+    public void cerrarActa() {
+        if (cerrada) {
+            System.out.println("El acta ya está cerrada.");
+            return;
+        }
+    
+        String datos = generarStringDatos();
+        hashOriginal = HashGenerator.generarHashSimple(datos);
+        cerrada = true;
+    
+        System.out.println("Acta cerrada exitosamente.");
+        System.out.println("Código de verificación (hash): " + hashOriginal);
+    }
+
+    public boolean verificarIntegridad() {
+        if (!cerrada) {
+            System.out.println("El acta no ha sido cerrada aún. No se puede verificar.");
+            return false;
+        }
+    
+        String datosActuales = generarStringDatos();
+        int hashActual = HashGenerator.generarHashSimple(datosActuales);
+    
+        if (hashActual == hashOriginal) {
+            System.out.println("El acta no ha sido modificada. Es válida.");
+            return true;
+        } else {
+            System.out.println("El acta ha sido modificada después del cierre. ¡No es válida!");
+            System.out.println("Hash original: " + hashOriginal);
+            System.out.println("Hash actual:   " + hashActual);
+            return false;
+        }
+    }
+     
 }
