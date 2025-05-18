@@ -7,7 +7,7 @@ public class HashGenerator {
             int ascii = (int) caracter;
             hash += ascii * (i + 1); 
         }
-        hash = hash % 1000000; 
+        hash = hash % 100000000; 
         return hash;
     }
 
