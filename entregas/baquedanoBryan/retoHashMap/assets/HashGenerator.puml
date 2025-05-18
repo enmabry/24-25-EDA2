@@ -2,6 +2,7 @@
 
 class HashGenerator {
   +generarHashSimple(datos: String) : int
+  +convertirAHexadecimal(hash: int) : String
 }
 
 @enduml
