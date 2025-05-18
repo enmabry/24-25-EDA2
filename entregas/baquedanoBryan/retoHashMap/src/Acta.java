@@ -2,14 +2,14 @@ public class Acta {
     protected Alumno[] alumnos;
     protected int cantidadAlumnos;
     protected String fechaCierre;
-    protected int hashOriginal;
+    protected String hashHexOriginal;
     protected boolean cerrada;
 
     public Acta(int capacidadMaxima, String fechaCierre) {
         alumnos = new Alumno[capacidadMaxima];
         cantidadAlumnos = 0;
         this.fechaCierre = fechaCierre;
-        hashOriginal = 0;
+        hashHexOriginal = "";
         cerrada = false;
     }
 
@@ -53,11 +53,12 @@ public class Acta {
         }
 
         String datos = generarStringDatos();
-        hashOriginal = HashGenerator.generarHashSimple(datos);
+        int hashNumerico = HashGenerator.generarHashSimple(datos);
+        hashHexOriginal = HashGenerator.convertirAHexadecimal(hashNumerico);
         cerrada = true;
 
         System.out.println("Acta cerrada exitosamente.");
-        System.out.println("Código de verificación (hash): " + hashOriginal);
+        System.out.println("Código de verificación (hex): " + hashHexOriginal);
     }
 
     public boolean verificarIntegridad() {
@@ -67,15 +68,16 @@ public class Acta {
         }
 
         String datosActuales = generarStringDatos();
-        int hashActual = HashGenerator.generarHashSimple(datosActuales);
+        int hashActualNumerico = HashGenerator.generarHashSimple(datosActuales);
+        String hashActualHex = HashGenerator.convertirAHexadecimal(hashActualNumerico);
 
-        if (hashActual == hashOriginal) {
+        if (hashActualHex.equals(hashHexOriginal)) {
             System.out.println("El acta no ha sido modificada. Es válida.");
             return true;
         } else {
             System.out.println("El acta ha sido modificada después del cierre. ¡No es válida!");
-            System.out.println("Hash original: " + hashOriginal);
-            System.out.println("Hash actual:   " + hashActual);
+            System.out.println("Hash original: " + hashHexOriginal);
+            System.out.println("Hash actual:   " + hashActualHex);
             return false;
         }
     }
