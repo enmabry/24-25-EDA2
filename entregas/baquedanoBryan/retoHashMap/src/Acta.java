@@ -51,11 +51,11 @@ public class Acta {
             System.out.println("El acta ya está cerrada.");
             return;
         }
-    
+
         String datos = generarStringDatos();
         hashOriginal = HashGenerator.generarHashSimple(datos);
         cerrada = true;
-    
+
         System.out.println("Acta cerrada exitosamente.");
         System.out.println("Código de verificación (hash): " + hashOriginal);
     }
@@ -65,10 +65,10 @@ public class Acta {
             System.out.println("El acta no ha sido cerrada aún. No se puede verificar.");
             return false;
         }
-    
+
         String datosActuales = generarStringDatos();
         int hashActual = HashGenerator.generarHashSimple(datosActuales);
-    
+
         if (hashActual == hashOriginal) {
             System.out.println("El acta no ha sido modificada. Es válida.");
             return true;
@@ -79,5 +79,18 @@ public class Acta {
             return false;
         }
     }
-     
+
+    public void mostrarAlumnos() {
+        if (cantidadAlumnos == 0) {
+            System.out.println("No hay alumnos cargados en el acta.");
+            return;
+        }
+
+        System.out.println("Listado de alumnos:");
+        for (int i = 0; i < cantidadAlumnos; i++) {
+            Alumno a = alumnos[i];
+            System.out.println((i + 1) + ". " + a.nombre + " " + a.apellido + " - Nota: " + a.nota);
+        }
+    }
+
 }
