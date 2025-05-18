@@ -1,0 +1,9 @@
+@startuml Menu
+
+class Main {
+  +main(args: String[]) : void
+}
+
+Main --> Acta : controla
+
+@enduml

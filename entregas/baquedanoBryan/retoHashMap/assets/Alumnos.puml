@@ -1,0 +1,9 @@
+@startuml Alumnos
+
+class Alumno {
+  +nombre : String
+  +apellido : String
+  +nota : int
+}
+
+@enduml

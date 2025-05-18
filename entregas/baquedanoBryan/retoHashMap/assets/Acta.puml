@@ -1,0 +1,24 @@
+@startuml Acta
+
+class Alumno {
+  +nombre : String
+  +apellido : String
+  +nota : int
+}
+
+class Acta {
+  +alumnos : Alumno[]
+  +cantidadAlumnos : int
+  +fechaCierre : String
+  +hashOriginal : int
+  +cerrada : boolean
+  --
+  +agregarAlumno(nombre: String, apellido: String, nota: int) : void
+  +cerrarActa() : void
+  +verificarIntegridad() : boolean
+  +generarStringDatos() : String
+}
+
+Acta --> Alumno : contiene
+
+@enduml

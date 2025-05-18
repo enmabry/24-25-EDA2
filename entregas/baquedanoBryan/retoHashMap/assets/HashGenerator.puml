@@ -1,0 +1,7 @@
+@startuml HashGenerator
+
+class HashGenerator {
+  +generarHashSimple(datos: String) : int
+}
+
+@enduml
