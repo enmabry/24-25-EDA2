@@ -1,6 +1,5 @@
 public class HashGenerator {
 
-    
     public static int generarHashSimple(String datos) {
         int hash = 0;
         for (int i = 0; i < datos.length(); i++) {
@@ -12,7 +11,6 @@ public class HashGenerator {
         return hash;
     }
 
-    
     public static String convertirAHexadecimal(int hash) {
         return Integer.toHexString(hash);
     }
